@@ -1,0 +1,43 @@
+1. 什么是多态？它的作用是什么？如何实现多态？
+答：多态是具有相同的函数名，对应不同的参数类型，返回值类型和个数的函数;
+作用：对于实现同一种功能的函数，不需要重新定义函数，节省代码量。
+实现：根据不同参数和类型，使用相同函数名定义和调用函数即可。
+2. C++中引用和指针的区别？
+答：引用是一个常量，存储的是指向对象的存储地址；
+指针是一个变量，存储的是指向对象的存储地址
+3. 拷贝构造函数的参数为什么必须用引用？
+答：类构建的时候，编译器会默认生成拷贝构造函数，如果不用引用的话，
+拷贝函数会一直循环调用自己，陷入死循环。
+4. 重载和重写区别?
+答：重载是子类调用父类的成员函数。重写是子类重新定义和父类相同的函数名的函数。
+5. 树遍历算法有哪几种？请用伪代码实现一种树的遍历算法。
+答：先序遍历，中序遍历，后序遍历
+void pre(ListNode* node)//先序遍历 参数是根节点
+  	if node is not NULL
+    	node->key;
+		return;
+	pre(node->left);
+	pre(node->right);
+
+6. 说明几个自己熟悉的设计模式？用伪代码实现一种模式。
+答：十分抱歉，这个我之前没有看过，的确答案不上来。
+7. 请用伪代码实现快速排序算法。
+void quick_sort(int* array, int begin,  int end)
+	if(begin < end)
+    	int pos = part(array, begin, end);
+		quick_sort(array, begin, pos - 1);
+        quick_sort(array, pos + 1, end);
+
+int part(int *array, int begin, int end)
+    int key = array[begin];
+	int L = begin;
+	int R = end;
+	while(L < R)
+      	while(L < R && array[R] >= key)
+          	--R;
+        while(L < R && array[L] <= key)
+          	++L;
+		swap(array, L, R);
+
+    swap(array, L, begin);
+	return L;
