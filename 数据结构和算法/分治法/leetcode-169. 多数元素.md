@@ -22,3 +22,23 @@
         }
     };
     ```
+
+- 解法二：哈希表
+    + 该方法直观一些。
+    ```C++
+    class Solution {
+    public:
+        int majorityElement(vector<int>& nums) {
+            unordered_map<int, int> counts;
+            int majority = 0, cnt = 0;
+            for (int num: nums) {
+                ++counts[num];
+                if (counts[num] > cnt) {
+                    majority = num;
+                    cnt = counts[num];
+                }
+            }
+            return majority;
+        }
+    };
+    ```
